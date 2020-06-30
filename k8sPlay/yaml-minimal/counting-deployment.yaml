@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: counting-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: counting-service-app
+  template:
+    metadata:
+      name: counting-service-app
+      labels:
+        app: counting-service-app
+        version: v1
+    spec:
+      containers:
+        - name: app 
+          image: hashicorp/counting-service:0.0.2
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 9001

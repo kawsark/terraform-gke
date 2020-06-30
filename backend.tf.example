@@ -1,0 +1,9 @@
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "you-tfc-org"
+    workspaces {
+      name = "terraform-gke-k8s-hackathon"
+    }
+  }
+}
